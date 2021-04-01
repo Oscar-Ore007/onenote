@@ -11,7 +11,7 @@ class NotebooksContainer extends Component {
     render() {
         return(
             <div>
-                Notebook Container! 
+                {/*Notebook Container! */}
                 <Notebooks notebooks={this.props.notebooks} /> 
             </div>
         )
@@ -20,8 +20,8 @@ class NotebooksContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        notebooks: state.notebooks
+        notebooks: state.notebooks || []
     }
 }
 
-export default connect(mapStateToProps, { fetchNotebooks })(NotebooksContainer)
+export default connect(mapStateToProps, {fetchNotebooks })(NotebooksContainer)
