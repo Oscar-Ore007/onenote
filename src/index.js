@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import{ composeWithDevTools } from 'redux-devtools-extension'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-let reducer = ''
+const initialState = {}
+let store = createStore(rootReducer, initialState, compose(applyMiddleware(thunk), composeWithDevTools()))
 
-let store = createStore(reducer, applyMiddleware(thunk))
+// let reducer = ''
+
+// let store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider>
