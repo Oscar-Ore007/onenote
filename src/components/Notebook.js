@@ -1,13 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Notebooks extends Component {
-    render() {
-        return(
-            <div>
-                List of Notebooks
-            </div>
-        )
-    }
-}
+const Notebooks = (props) => <div>List of notebooks:</div>
 
-export default Notebooks; 
+export default Notebooks

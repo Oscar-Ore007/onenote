@@ -11,4 +11,4 @@ class NotebookForm extends Component {
     }
 }
 
-export default NotebookForm; 
+export default NotebookForm
