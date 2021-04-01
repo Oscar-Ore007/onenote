@@ -7,6 +7,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+let reducer = ''
+
+let store = createStore(reducer, applyMiddleware(thunk))
+
 ReactDOM.render(
   <Provider>
     <App />
