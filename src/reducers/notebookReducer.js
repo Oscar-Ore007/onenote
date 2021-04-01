@@ -1,4 +1,11 @@
 export default function notebookReducer(state, action) {
-   
-    return state 
+
+    switch (action.type) {
+        case 'FETCH_NOTEBOOKS':
+            return {
+                notebooks: action.payload 
+            }
+            default:
+                return state 
+    }
 }
