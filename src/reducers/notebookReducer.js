@@ -1,3 +1,3 @@
 export default function notebookReducer(state, action) {
-    return state 
+    return console.log(action.payload)
 }

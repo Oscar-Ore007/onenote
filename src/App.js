@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import fetchNotebooks from './actions/fetchNotebooks';
 
 class App extends Component {
-  componentDidMount() {
-    fetch('http://localhost:3000/notebooks')
-    .then(response => response.json())
-    .then(data => console.log(data[0].notes))
-  }
+ componentDidMount() {
+   this.props.fetchNotebooks()
+ }
 
   render () {
     return (
