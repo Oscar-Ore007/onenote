@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 // import fetchNotebooks from './actions/fetchNotebooks';
 import NotebooksContainer from './containers/NotebooksContainer';
 // import NotebookFormContainer from './containers/NotebookFormContainer';
+import Navbar from './components/Navbar';
 
 class App extends Component {
  componentDidMount() {
@@ -11,10 +12,11 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <>
+        <Navbar /> 
         <NotebooksContainer /> 
         {/*<NotebookFormContainer /> */}
-      </div>
+      </>
     )
   }
 }

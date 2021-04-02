@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Notebooks = (props) => {
+function Notebooks(props) {
 console.loge(props.notebooks)
 return (
 <div>
