@@ -11,12 +11,12 @@ const styles = makeStyles({
     link: {
         textDecoration: 'none',
         color: 'white',
-        fontFamily: 'caveat',
+        fontFamily: 'Cursive',
         fontWeight: 700,
         fontSize: 35
     },
     barColor: {
-        backgroundColor: '#5D6B83'
+        backgroundColor: '#8A2BE2'
     },
     button: {
         color: 'white'
@@ -31,7 +31,7 @@ function Navbar() {
             <Toolbar>
                 <Grid container>
                     <Grid item xs={10}>
-                        <Typography variant="h4" component={Link} to={"/"} className={classes.link}>Scribbles</Typography>
+                        <Typography variant="h4" component={Link} to={"/"} className={classes.link}>One Note</Typography>
                     </Grid>
                     <Grid item xs={1}>
                         <Button component={Link} to={"/notebooks/new"} className={classes.button}>New Notebook</Button>
