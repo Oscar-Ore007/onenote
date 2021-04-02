@@ -9,5 +9,10 @@ export default function addNote(note) {
 
             body: JSON.stringify({note})
         }
+        fetch('http://localhost:3000/notebooks/${notebookId}/notes', options)
+        .then(response => response.json())
+        .then(note => {
+            dispatch({type: 'ADD_NOTE', payload: note})
+        })
     }
 }
