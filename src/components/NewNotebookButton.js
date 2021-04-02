@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function newNotebookButton() {
+function NewNotebookButton() {
     return (
         <div>
             <Link to="/notebooks/new">
@@ -9,6 +9,7 @@ function newNotebookButton() {
             </Link>
         </div>
     )
+    
 }
 
-export default NewNotebookButton 
+export default NewNotebookButton

@@ -1,64 +1,58 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import addNote from '../actions/addNote';
-import editNote from '../actions/editNote';
+import addNotebook from '../actions/addNotebook';
+import editNotebook from '../actions/editNotebook';
+import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 
-class NoteForm extends Component {
+class NotebookForm extends Component {
     
     state = {
-        title: this.props.note ? this.props.note.title : "",
-        content: this.props.note ? this.props.note.content : "",
-        date: this.props.note ? this.props.note.date : ""
+        title: this.props.notebook ? this.props.notebook.title : "",
+        id: this.props.notebook ? this.props.notebook.id : ""
     }
-
-    // notebook = this.props.notebook
-
-
+    
     handleChange = (event) => {
-        // debugger
         this.setState({
             [event.target.name]: event.target.value
         })        
     }
 
     handleSubmit = (event) => {
-        // debugger
         event.preventDefault()
-        let notebook = this.props.notebook
-        let note = this.state
-        console.log(notebook)
-        if(!this.props.note) {
-            this.props.addNote(this.state, this.props.notebook.id)
-            this.props.history.push(`/notebooks/${notebook.id}`)
+        if(!this.props.notebook) { 
+            this.props.addNotebook(this.state)
+            this.props.history.push("/notebooks")
         } else {
-            let notebookId = this.props.note.notebook_id
-            let noteId = this.props.note.id
-            let editedNote = {...this.state, id: this.props.note.id}
-            this.props.editNote(editedNote, notebookId)
-            this.props.history.push(`/notebooks/${notebookId}/notes/${noteId}`)
+            let notebookId = this.props.notebook.id
+            let editedNotebook = {...this.state, id: notebookId}
+            this.props.editNotebook(editedNotebook)
+            this.props.history.push(`/notebooks/${notebookId}`)
         }
-        
-        this.setState({
-            title: "",
-            content: "",
-            date: ""
-        })
+        this.setState({title: ""})
     }
-
+    
     render() {
-        return (
-            <div>
-                Write your notes here:
-                <form onSubmit={this.handleSubmit}>
-                    <input type="date" name="date" value={this.state.date} onChange={this.handleChange} /><br/><br/>
-                    <input type="text" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange}/><br/><br/>
-                    <textarea type="textarea" placeholder="Start writing" name="content" value={this.state.content} rows={15} cols={100} onChange={this.handleChange}/><br/><br/>
-                    <input type="submit"/>
-                </form>
-            </div>
+        return(
+            <Container>
+                <Box m={8}>
+                    <Typography variant="h5">
+                        Create a New Notebook
+                    </Typography>
+                    <form onSubmit={this.handleSubmit} noValidate autoComplete="off">
+                        <TextField required fullWidth margin="normal" type="text" label="Title" value={this.state.title} name="title" onChange={this.handleChange} variant="outlined"/>
+                        <Button type="submit" variant="contained" color="primary">
+                            Submit
+                        </Button>
+                    </form>
+                </Box>
+            </Container>
         )
     }
 }
 
-export default withRouter(connect(null, { addNote, editNote })(NoteForm))
+export default withRouter(connect(null, { addNotebook, editNotebook })(NotebookForm))

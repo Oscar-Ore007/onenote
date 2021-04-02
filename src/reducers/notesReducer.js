@@ -1,4 +1,5 @@
 export default function notesReducer(state = [], action) {
+    // debugger
     switch (action.type) {
         case 'FETCH_NOTES':
             return {
@@ -9,17 +10,16 @@ export default function notesReducer(state = [], action) {
                 ...state, notes: [...state.notes, action.payload]
             }
         case 'EDIT_NOTE':
-            const editNote = state.notes.map(note => note.id === action.payload.id ? action.payload : note)
+            const editedNote = state.notes.map(note => note.id === action.payload.id ? action.payload : note)
             return {
-                notes: editNote 
+                notes: editedNote
             }
-        case 'DELET_NOTE':
+        case 'DELETE_NOTE':
             const newNotes = state.notes.filter(note => note.id !== action.noteId)
             return {
-                notes: newNotes 
+                notes: newNotes
             }
-            default:
-                return state 
-    
+        default:
+            return state
     }
 }

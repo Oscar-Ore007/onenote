@@ -1,10 +1,9 @@
-export default function fetchNotebooks() {
-    // debugger
+export default function fetchNotes() {
     return (dispatch) => {
-        fetch('http://localhost:3000/notebooks')
+        fetch('http://localhost:3000/notes')
         .then(response => response.json())
-        .then(notebooks => {
-            dispatch({type: 'FETCH_NOTEBOOKS', payload: notebooks})
+        .then(notes => {
+            dispatch({type: 'FETCH_NOTES', payload: notes})
         })
     }
 }
