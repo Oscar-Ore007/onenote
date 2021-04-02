@@ -8,33 +8,28 @@ import NewNotebookButton from '../components/NewNotebookButton';
 import NotebookForm from '../components/NotebookForm';
 
 class NotebooksContainer extends Component {
-
-    componentDidMount() {
-        this.props.fetchNotebooks()
-    }
+    
+    // componentDidMount() {
+    //     this.props.fetchNotebooks()
+    // }
+    
     render() {
+    // debugger
+    console.log(this.props.notebooks)
         return(
-            <div>
-                <Switch>
-                <Route exact path="/notebooks">
-                {/*Notebook Container! */}
-                    <NewNotebookButton /> 
-                    <Notebooks notebooks={this.props.notebooks} />
-                </Route> 
-                <Route exact path="/notebooks/new">
-                    <NotebookForm /> 
-                </Route>
-                <Route exact path="/notebooks/:id" render={((routerProps) => <Notebook notebook={this.props.notebooks.find(notebook => notebook.id === parseInt(routerProps.match.params.id))} /> ) }/> 
-                    </Switch>
-            </div>
+            <>
+                <NewNotebookButton/>
+                <Notebooks notebooks={this.props.notebooks}/>
+            </>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        notebooks: state.notebooks || []
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         notebooks: state.notebooks || []
+//     }
+// }
 
-export default connect(mapStateToProps, {fetchNotebooks })(NotebooksContainer)
+// export default connect(mapStateToProps, { fetchNotebooks })(NotebooksContainer)
+export default NotebooksContainer
