@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import Notes from '../components/Notes';
 import NoteForm from '../components/NoteForm';
+import fetchNotes from '../actions/fetchNotes'; 
 import Note from '../components/Note';
 
 class NotesContainer extends Component {
+
+    componentDidMount() {
+        this.props.fetchNotes()
+    }
     render() {
         return (
             <div>
@@ -18,4 +24,10 @@ class NotesContainer extends Component {
     }
 }
 
-export default NotesContainer 
+const mapStateToProps = (state) => {
+    return {
+        notes: state.notes || []
+    }
+}
+
+export default connect(mapStateToProps, { fetchNotes })(NotesContainer) 
