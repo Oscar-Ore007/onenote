@@ -9,6 +9,11 @@ export default function notebookReducer(state, action) {
             return {
                 ...state, notebooks: [...state.notebooks, action.payload]
             }
+
+            case 'ADD_NOTE':
+                return {
+                    ...state
+                }
             default:
                 return state 
     }
