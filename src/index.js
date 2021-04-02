@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware, compose} from 'redux';
+// Add combineReducers under redux once all reducers have been set up.
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import{ composeWithDevTools } from 'redux-devtools-extension'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import './index.css';
 import App from './App';
-import notebookReducer from './reducers/notebookReducer'
+import rootReducer from './reducers/rootReducer';
+// import notebookReducer from './reducers/notebooksReducer'
 import { BrowserRouter as Router } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
+
 
 const initialState = {}
-let store = createStore(notebookReducer, initialState, compose(applyMiddleware(thunk), composeWithDevTools()))
-
-// let reducer = ''
-
-// let store = createStore(reducer, applyMiddleware(thunk))
+let store = createStore(rootReducer, initialState, compose(applyMiddleware(thunk), composeWithDevTools())) 
+// create a reducers folder; create a rootReducer file inside and import the other reducers and do combineReducers
 
 ReactDOM.render(
   <Router>
@@ -25,8 +24,3 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
