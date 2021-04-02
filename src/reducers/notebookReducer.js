@@ -16,6 +16,11 @@ export default function notebookReducer(state, action) {
                     ...state, note:
                 [...state.notebooks[action.payload.notebook_id].notes, action.payload]
                 }
+
+                case 'DELETE_NOTE':
+                    return {
+                        
+                    }
             default:
                 return state 
     }

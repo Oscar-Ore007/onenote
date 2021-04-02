@@ -1,10 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import deleteNote from '../actions/deleteNote'; 
 
 function Note(props) {
 
     let note = props.note 
 
-    const handleDelete = (event) => {
+    const handleDelete = () => {
+        console.log("Deleted")
+        props.deleteNote(props.note.notebook_id, props.note.id)
 
     }
     return (
@@ -17,4 +21,4 @@ function Note(props) {
     )
 }
 
-export default Note 
+export default connect(null, { deleteNote })(Note)
