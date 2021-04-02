@@ -11,8 +11,10 @@ export default function notebookReducer(state, action) {
             }
 
             case 'ADD_NOTE':
+                let notebookId = action.payload.notebook_id 
                 return {
-                    ...state
+                    ...state, notes:
+                    [...state.notebooks[action.payload.notebook_id].notes, action.payload]
                 }
             default:
                 return state 
