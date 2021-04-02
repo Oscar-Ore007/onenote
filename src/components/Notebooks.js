@@ -7,7 +7,7 @@ return (
     <div>
         Notebooks
         {props.notebooks.map(notebook => 
-        <Notebook notebook={notebook}/>)}
+        <div key={notebook.id}><Notebook notebook={notebook}/></div>)}
             
     </div>
     )
