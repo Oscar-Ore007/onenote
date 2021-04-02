@@ -7,6 +7,7 @@ import{ composeWithDevTools } from 'redux-devtools-extension'
 import './index.css';
 import App from './App';
 import notebookReducer from './reducers/notebookReducer'
+import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 const initialState = {}
@@ -17,9 +18,11 @@ let store = createStore(notebookReducer, initialState, compose(applyMiddleware(t
 // let store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
   document.getElementById('root')
 );
 
