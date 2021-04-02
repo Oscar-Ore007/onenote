@@ -11,12 +11,17 @@ class NotebookForm extends Component {
         })
     }
 
+    handleSubmit = (event) => {
+        preventDefault(event)
+    }
+
     render() {
         return(
             <div>
                 Input notebook here! 
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="Title" value={this.state.title} name="title" onChange={this.handleChange} /> 
+                    <input type="submit"/> 
                 </form>
             </div>
         )
