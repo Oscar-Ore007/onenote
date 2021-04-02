@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import addNotebook from '../actions/addNotebook'
 
 class NotebookForm extends Component {
@@ -31,4 +32,4 @@ class NotebookForm extends Component {
     }
 }
 
-export default connect(null, { addNotebook })(NotebookForm)
+export default withRouter(connect(null, { addNotebook })(NotebookForm))
