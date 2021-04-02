@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 const styles = makeStyles({
     link: {
         textDecoration: 'none',
-        color: 'white',
+        color: 'black',
         fontFamily: 'Cursive',
         fontWeight: 700,
         fontSize: 35
@@ -19,7 +19,7 @@ const styles = makeStyles({
         backgroundColor: '#8A2BE2'
     },
     button: {
-        color: 'white'
+        color: 'black'
     }
 })
 
@@ -39,10 +39,7 @@ function Navbar() {
                     <Grid item xs={1}>
                         <Button component={Link} to={"/notebooks"} className={classes.button}>Notebooks</Button>
                     </Grid>
-                    {/* <Grid item xs={1}>
-                        <Button component={Link} to={"/notes"} className={classes.button}>Notes</Button>
-                    </Grid> */}
-                    {/* Put back link to notes when styling is completed. */}
+    
                 </Grid>
             </Toolbar>
         </AppBar>
