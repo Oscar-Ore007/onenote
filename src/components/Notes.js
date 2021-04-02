@@ -11,7 +11,7 @@ function Notes(props) {
             <ul>
             {props.notes && props.notes.map(note =>
                 <li key={note.id}>
-                    <Note note={note}/>
+                    {note.title} - {note.content}
                 </li>
                 )}
                 </ul>
