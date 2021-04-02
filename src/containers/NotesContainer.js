@@ -8,7 +8,7 @@ class NotesContainer extends Component {
             <div>
                 My Notes Container 
                 <NoteForm /> 
-                <Notes /> 
+                <Notes notes={this.props.notebook ? this.props.notebook.notes : null} /> 
             </div>
         )
     }

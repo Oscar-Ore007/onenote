@@ -11,7 +11,8 @@ function Notebook(props) {
         <>
              <h2>{notebook ? props.notebook.title : null}</h2>
              {notebook ? null : <Redirect to="/notebooks" />}
-        <NotesContainer /> 
+
+        <NotesContainer notebook={notebook} /> 
         </>
     )
 }
