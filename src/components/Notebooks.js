@@ -1,14 +1,23 @@
 import React from 'react';
-import Notebook from './Notebook'
+import {Link} from 'react-router-dom';
 
 const Notebooks = (props) => {
 console.loge(props.notebooks)
 return (
-    <div>
+<div>
+    <ul>
         Notebooks
         {props.notebooks.map(notebook => 
-        <div key={notebook.id}><Notebook notebook={notebook}/></div>)}
+        <li key={notebook.id}>
+
+        <Link to={`/notebooks/${notebook.id}`}>{notebook.title}
+        </Link>
+        
+        </li> )}
             
+    </ul>
+
+   
     </div>
     )
 }
