@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar(props) {
-    return(
+    return (
         <nav>
-            <Link to="/notebooks/new">NewNotebook</Link>
-            Notes
+            <Link to="/notebooks/new">New Notebook</Link>
             <Link to="/notebooks">Notebooks</Link>
+            <Link to="/notes">Notes</Link>
         </nav>
     )
 }
