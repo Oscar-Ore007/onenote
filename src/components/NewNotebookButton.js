@@ -2,7 +2,9 @@ import React from 'react';
 
 function newNotebookButton() {
     return (
-        <div></div>
+        <div>
+            <button>New Notebook</button>
+        </div>
     )
 }
 
