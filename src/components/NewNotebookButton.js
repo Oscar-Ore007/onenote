@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function newNotebookButton() {
     return (
         <div>
-            <button>New Notebook</button>
+            <Link to="/notebooks/new">
+                <button>New Notebook</button>
+            </Link>
         </div>
     )
 }
